@@ -25,7 +25,9 @@ export default function App() {
   const [fastGovtId, setFastGovtId] = useState('');
   const [fastLoginError, setFastLoginError] = useState('');
 
-  // Persist User Session
+  const [theme, setTheme] = useState('default');
+
+  // Persist User Session & Theme (Requirement)
   useEffect(() => {
     const savedUser = localStorage.getItem('user');
     if (savedUser) {
@@ -35,7 +37,17 @@ export default function App() {
         localStorage.removeItem('user');
       }
     }
+
+    const savedTheme = localStorage.getItem('theme') || 'default';
+    setTheme(savedTheme);
+    document.body.className = `theme-${savedTheme}`;
   }, []);
+
+  const handleThemeChange = (newTheme) => {
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+    document.body.className = `theme-${newTheme}`;
+  };
 
   const handleLogin = (user) => {
     setCurrentUser(user);
@@ -81,7 +93,7 @@ export default function App() {
       <nav className="navbar">
         <div className="container nav-flex">
           <div className="logo-container" onClick={() => navigateToPage('home')}>
-            📦 Sticko <span style={{ color: 'var(--text-main)', fontWeight: 300, marginLeft: '0.25rem' }}>Dark</span>
+            📦 Sticko
           </div>
 
           {/* Links for Desktop */}
@@ -138,6 +150,29 @@ export default function App() {
             >
               <Server size={14} /> Server Control
             </span>
+
+            {/* Theme Selector Widget */}
+            <div style={{ display: 'flex', alignItems: 'center', marginLeft: '0.5rem' }}>
+              <select 
+                value={theme} 
+                onChange={(e) => handleThemeChange(e.target.value)}
+                className="form-select"
+                style={{ 
+                  padding: '0.25rem 0.5rem', 
+                  fontSize: '0.8rem', 
+                  background: 'var(--bg-tertiary)', 
+                  border: '1px solid var(--glass-border)',
+                  color: 'var(--text-main)',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  width: 'auto'
+                }}
+              >
+                <option value="default">🎨 Default</option>
+                <option value="dark">🌙 Dark</option>
+                <option value="light">☀️ Light</option>
+              </select>
+            </div>
           </div>
         </div>
       </nav>
@@ -198,10 +233,13 @@ export default function App() {
       }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
           <div>
-            <div style={{ fontWeight: 700, color: '#fff', display: 'flex', alignItems: 'center', gap: '0.25rem', marginBottom: '0.5rem' }}>
-              📦 Sticko Dark Clone
+            <div style={{ fontWeight: 700, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '0.25rem', marginBottom: '0.5rem' }}>
+              📦 Sticko Directory
             </div>
-            <p>Premium dark local directory service database. Secure Govt ID Authentication.</p>
+            <p>Premium local directory service database. Secure Govt ID Authentication.</p>
+            <div style={{ marginTop: '0.5rem', fontSize: '0.85rem' }}>
+              📞 Customer Care: <a href="mailto:shivamhuyrr@gmail.com" style={{ color: 'var(--primary)', fontWeight: 600 }}>shivamhuyrr@gmail.com</a>
+            </div>
           </div>
           <div style={{ display: 'flex', gap: '1.5rem' }}>
             <span style={{ cursor: 'pointer' }} onClick={() => navigateToPage('home')}>Home</span>
@@ -209,7 +247,7 @@ export default function App() {
             <span style={{ cursor: 'pointer' }} onClick={() => navigateToPage('admin-panel')}>Server Dashboard</span>
           </div>
           <div>
-            © 2026 Sticko Dark. Server password is root.
+            © 2026 Sticko. Server password is root.
           </div>
         </div>
       </footer>

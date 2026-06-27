@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   Wrench, Zap, BookOpen, Gamepad2, Hammer, 
   Car, Cpu, Truck, Ticket, Search, ShieldCheck, 
-  Star, UserCheck, MapPin, Award
+  Star, UserCheck, MapPin, Award, Tent, ChefHat
 } from 'lucide-react';
 
 const CATEGORIES = [
@@ -14,7 +14,10 @@ const CATEGORIES = [
   { name: 'Booking Agent', icon: Ticket, count: '6 Available', desc: 'Flight, train, movies, and event bookings.' },
   { name: 'Car Mechanic', icon: Car, count: '8 Available', desc: 'Breakdown services, servicing, and cleaning.' },
   { name: 'Machine Mechanic', icon: Cpu, count: '5 Available', desc: 'Appliance, tool, and industrial repairers.' },
-  { name: 'Delivery Boy', icon: Truck, count: '22 Available', desc: 'Courier, grocery, and local item deliveries.' }
+  { name: 'Delivery Boy', icon: Truck, count: '22 Available', desc: 'Courier, grocery, and local item deliveries.' },
+  { name: 'Tent Man', icon: Tent, count: '4 Available', desc: 'Wedding, corporate stage, and event setups.' },
+  { name: 'Chef', icon: ChefHat, count: '6 Available', desc: 'Private party gourmet chefs and caterers.' },
+  { name: 'Furniture Man', icon: Hammer, count: '10 Available', desc: 'Teak wood, carpentry, and custom furniture.' }
 ];
 
 const INDIAN_CITIES = [
@@ -74,7 +77,7 @@ export default function Home({ onSelectCategory, onViewAllWorkers, onSearch }) {
           Verify & Hire <span>Local Service Experts</span> Instantly
         </h1>
         <p className="hero-subtitle">
-          Sticko in Dark. Government ID authenticated workers for home resource services, 
+          Sticko directory. Government ID authenticated workers for home resource services, 
           academic tutoring, gaming buddies, mechanics, and logistics.
         </p>
 
@@ -260,7 +263,7 @@ export default function Home({ onSelectCategory, onViewAllWorkers, onSearch }) {
       }}>
         <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>Are You a Service Professional?</h3>
         <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto 1.5rem auto', fontSize: '0.95rem' }}>
-          Join the Sticko Dark directory. Register your profile, authenticate your Government ID, and start getting hired by local clients.
+          Join the Sticko directory. Register your profile, authenticate your Government ID, and start getting hired by local clients.
         </p>
         <button onClick={onViewAllWorkers} className="btn btn-primary">
           Register as Worker

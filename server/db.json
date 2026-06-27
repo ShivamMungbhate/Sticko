@@ -16,6 +16,10 @@
       "reviews": [
         {"user": "Amit Verma", "rating": 5, "comment": "Excellent service, fixed the leak immediately!", "date": "2026-06-25"},
         {"user": "Priya Singh", "rating": 4, "comment": "Polite and professional.", "date": "2026-06-20"}
+      ],
+      "portfolio": [
+        { "title": "Under-Sink Piping Restoration", "image": "https://images.unsplash.com/photo-1581244904349-86426dea8d68?w=300&h=200&fit=crop" },
+        { "title": "Bathroom Clog Clearance & Fittings", "image": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=300&h=200&fit=crop" }
       ]
     },
     {
@@ -33,6 +37,10 @@
       "hourlyRate": 300,
       "reviews": [
         {"user": "Sanjay Kapoor", "rating": 5, "comment": "Highly skilled, resolved short-circuit issue quickly.", "date": "2026-06-22"}
+      ],
+      "portfolio": [
+        { "title": "Modular DB Panel Installation", "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=300&h=200&fit=crop" },
+        { "title": "Chandelier Fitting & Smart Lighting", "image": "https://images.unsplash.com/photo-1565538810844-1e1194826cf0?w=300&h=200&fit=crop" }
       ]
     },
     {
@@ -51,7 +59,10 @@
       "reviews": [
         {"user": "Meera Joshi", "rating": 5, "comment": "My son's math grades improved significantly!", "date": "2026-06-18"}
       ],
-      "studentSection": true
+      "studentSection": true,
+      "portfolio": [
+        { "title": "Online Algebra Batch", "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=300&h=200&fit=crop" }
+      ]
     },
     {
       "id": "w4",
@@ -70,7 +81,10 @@
       "reviews": [
         {"user": "Rohan Deshmukh", "rating": 4, "comment": "Great chess game, learned a lot of opening strategies.", "date": "2026-06-24"}
       ],
-      "studentSection": true
+      "studentSection": true,
+      "portfolio": [
+        { "title": "Tournament Coaching Session", "image": "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=300&h=200&fit=crop" }
+      ]
     },
     {
       "id": "w5",
@@ -87,7 +101,8 @@
       "hourlyRate": 200,
       "games": ["Badminton", "Football", "Cricket"],
       "reviews": [],
-      "studentSection": true
+      "studentSection": true,
+      "portfolio": []
     },
     {
       "id": "w6",
@@ -102,7 +117,8 @@
       "rating": 4.6,
       "experience": "10 years",
       "hourlyRate": 180,
-      "reviews": []
+      "reviews": [],
+      "portfolio": []
     },
     {
       "id": "w7",
@@ -119,6 +135,9 @@
       "hourlyRate": 350,
       "reviews": [
         {"user": "Gaurav Sen", "rating": 5, "comment": "Excellent engine diagnostic and tuning.", "date": "2026-06-15"}
+      ],
+      "portfolio": [
+        { "title": "Engine Valve Rebuild", "image": "https://images.unsplash.com/photo-1486006920555-c77dce18193b?w=300&h=200&fit=crop" }
       ]
     },
     {
@@ -134,7 +153,8 @@
       "rating": 4.9,
       "experience": "7 years",
       "hourlyRate": 500,
-      "reviews": []
+      "reviews": [],
+      "portfolio": []
     },
     {
       "id": "w9",
@@ -149,7 +169,8 @@
       "rating": 4.6,
       "experience": "3 years",
       "hourlyRate": 120,
-      "reviews": []
+      "reviews": [],
+      "portfolio": []
     },
     {
       "id": "w10",
@@ -164,7 +185,8 @@
       "rating": 4.8,
       "experience": "4 years",
       "hourlyRate": 150,
-      "reviews": []
+      "reviews": [],
+      "portfolio": []
     },
     {
       "id": "w11",
@@ -182,7 +204,10 @@
       "reviews": [
         {"user": "Riddhima Das", "rating": 5, "comment": "Excellent English classes.", "date": "2026-06-22"}
       ],
-      "studentSection": true
+      "studentSection": true,
+      "portfolio": [
+        { "title": "Science Olympiad Study Lab", "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300&h=200&fit=crop" }
+      ]
     },
     {
       "id": "w12",
@@ -197,7 +222,123 @@
       "rating": 4.7,
       "experience": "9 years",
       "hourlyRate": 300,
-      "reviews": []
+      "reviews": [],
+      "portfolio": []
+    },
+    {
+      "id": "w13",
+      "name": "Harish Rawat",
+      "category": "Tent Man",
+      "mobile": "9812981298",
+      "email": "harish.tents@gmail.com",
+      "address": "Dwarka Sector 10, Delhi",
+      "govtId": "Aadhaar: 4444-5555-6666",
+      "isVerified": true,
+      "photo": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=150&h=150&fit=crop&crop=face",
+      "rating": 4.9,
+      "experience": "7 years",
+      "hourlyRate": 600,
+      "reviews": [
+        {"user": "Nitin Goel", "rating": 5, "comment": "Amazing wedding tent canopy and lighting setup. Highly recommend!", "date": "2026-06-12"}
+      ],
+      "portfolio": [
+        { "title": "Gala Wedding Canopy Setup", "image": "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=300&h=200&fit=crop" },
+        { "title": "Exotic Lights & Dome Tents", "image": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=300&h=200&fit=crop" }
+      ]
+    },
+    {
+      "id": "w14",
+      "name": "Suresh Nair",
+      "category": "Tent Man",
+      "mobile": "9447794477",
+      "email": "suresh.tents@gmail.com",
+      "address": "Palarivattom, Kochi",
+      "govtId": "Aadhaar: 3333-2222-1111",
+      "isVerified": true,
+      "photo": "",
+      "rating": 4.8,
+      "experience": "11 years",
+      "hourlyRate": 800,
+      "reviews": [],
+      "portfolio": [
+        { "title": "Outdoor Corporate Stage Setup", "image": "https://images.unsplash.com/photo-1511578314322-379afb476865?w=300&h=200&fit=crop" }
+      ]
+    },
+    {
+      "id": "w15",
+      "name": "Chef Sanjeev Kumar",
+      "category": "Chef",
+      "mobile": "9991118882",
+      "email": "sanjeev.chef@gmail.com",
+      "address": "Andheri West, Mumbai",
+      "govtId": "Passport: V9988776",
+      "isVerified": true,
+      "photo": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=150&h=150&fit=crop&crop=face",
+      "rating": 5.0,
+      "experience": "15 years",
+      "hourlyRate": 1000,
+      "reviews": [
+        {"user": "Akash Mehra", "rating": 5, "comment": "The gourmet multi-cuisine dinner was outstanding!", "date": "2026-06-23"}
+      ],
+      "portfolio": [
+        { "title": "Royal Awadhi Biryani & Kebabs Platter", "image": "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?w=300&h=200&fit=crop" },
+        { "title": "Artisanal Dessert Buffet Display", "image": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=300&h=200&fit=crop" }
+      ]
+    },
+    {
+      "id": "w16",
+      "name": "Chef Asha Patel",
+      "category": "Chef",
+      "mobile": "9123491234",
+      "email": "asha.chef@gmail.com",
+      "address": "Navrangpura, Ahmedabad",
+      "govtId": "Aadhaar: 6666-7777-8888",
+      "isVerified": true,
+      "photo": "",
+      "rating": 4.9,
+      "experience": "9 years",
+      "hourlyRate": 700,
+      "reviews": [],
+      "portfolio": [
+        { "title": "Pure Veg Gujarati Deluxe Thali", "image": "https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?w=300&h=200&fit=crop" }
+      ]
+    },
+    {
+      "id": "w17",
+      "name": "Madan Suthar",
+      "category": "Furniture Man",
+      "mobile": "9879898798",
+      "email": "madan.carpentry@gmail.com",
+      "address": "Mansarovar, Jaipur",
+      "govtId": "Aadhaar: 9900-1122-3344",
+      "isVerified": true,
+      "photo": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=150&h=150&fit=crop&crop=face",
+      "rating": 4.8,
+      "experience": "10 years",
+      "hourlyRate": 300,
+      "reviews": [],
+      "portfolio": [
+        { "title": "Teakwood Dining Table Handcraft", "image": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=300&h=200&fit=crop" },
+        { "title": "Custom TV Cabinet & Modular Wardrobe", "image": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=300&h=200&fit=crop" }
+      ]
+    },
+    {
+      "id": "w18",
+      "name": "Devendra Sharma",
+      "category": "Furniture Man",
+      "mobile": "9712397123",
+      "email": "devendra.wood@gmail.com",
+      "address": "Hadapsar, Pune",
+      "govtId": "PAN: DPS8976Q",
+      "isVerified": true,
+      "photo": "",
+      "rating": 4.7,
+      "experience": "6 years",
+      "hourlyRate": 250,
+      "reviews": [],
+      "portfolio": [
+        { "title": "Solid Wooden Study Desk Setup", "image": "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=300&h=200&fit=crop" }
+      ]
     }
   ],
   "users": [

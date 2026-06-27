@@ -15,6 +15,7 @@ export default function CategoryList({ category, currentUser, onPromptLogin, sea
   const [maxPrice, setMaxPrice] = useState(1000);
   const [selectedWorkerForBooking, setSelectedWorkerForBooking] = useState(null);
   const [selectedWorkerForReview, setSelectedWorkerForReview] = useState(null);
+  const [viewingProject, setViewingProject] = useState(null);
 
   // Booking Form State
   const [bookingDate, setBookingDate] = useState('');
@@ -267,6 +268,52 @@ export default function CategoryList({ category, currentUser, onPromptLogin, sea
                     </div>
                   </div>
 
+                  {/* Portfolio Showcase */}
+                  {worker.portfolio && worker.portfolio.length > 0 && (
+                    <div style={{ marginTop: '0.75rem', borderTop: '1px solid var(--glass-border)', paddingTop: '0.75rem' }}>
+                      <div style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--secondary)', textTransform: 'uppercase', marginBottom: '0.45rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                        <span>📂 Works & Projects Portfolio</span>
+                      </div>
+                      <div style={{ display: 'flex', gap: '0.5rem', overflowX: 'auto', paddingBottom: '0.25rem' }}>
+                        {worker.portfolio.map((project, idx) => (
+                          <div 
+                            key={idx} 
+                            style={{ 
+                              position: 'relative', 
+                              width: '90px', 
+                              height: '65px', 
+                              borderRadius: '6px', 
+                              overflow: 'hidden', 
+                              border: '1px solid var(--glass-border)',
+                              flexShrink: 0,
+                              cursor: 'pointer'
+                            }}
+                            title={project.title}
+                            onClick={() => setViewingProject(project)}
+                          >
+                            <img src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            <div style={{
+                              position: 'absolute',
+                              bottom: 0,
+                              left: 0,
+                              right: 0,
+                              background: 'rgba(0,0,0,0.85)',
+                              color: '#fff',
+                              fontSize: '0.55rem',
+                              padding: '0.1rem 0.25rem',
+                              whiteSpace: 'nowrap',
+                              overflow: 'hidden',
+                              textOverflow: 'ellipsis',
+                              textAlign: 'center'
+                            }}>
+                              {project.title}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   <div className="worker-meta">
                     <div className="worker-meta-item">
                       <span>Experience:</span>
@@ -480,6 +527,25 @@ export default function CategoryList({ category, currentUser, onPromptLogin, sea
                 </button>
               </form>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Project Portfolio Lightbox Modal */}
+      {viewingProject && (
+        <div className="modal-overlay" onClick={() => setViewingProject(null)} style={{ zIndex: 300 }}>
+          <div className="modal-content" style={{ maxWidth: '500px', background: 'transparent', border: 'none', boxShadow: 'none', textAlign: 'center' }} onClick={(e) => e.stopPropagation()}>
+            <div style={{ position: 'relative' }}>
+              <img src={viewingProject.image} alt={viewingProject.title} style={{ width: '100%', borderRadius: '12px', border: '2px solid var(--primary)', boxShadow: '0 0 30px var(--primary-glow)', maxHeight: '70vh', objectFit: 'contain' }} />
+              <button 
+                onClick={() => setViewingProject(null)} 
+                style={{ position: 'absolute', top: '-10px', right: '-10px', background: 'var(--primary)', color: '#fff', border: 'none', width: '30px', height: '30px', borderRadius: '50%', cursor: 'pointer', fontWeight: 'bold', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 10px rgba(0,0,0,0.5)' }}
+              >
+                ✕
+              </button>
+            </div>
+            <h4 style={{ color: '#fff', marginTop: '1rem', fontSize: '1.25rem', textShadow: '0 2px 10px rgba(0,0,0,0.9)', fontWeight: 600 }}>{viewingProject.title}</h4>
+            <button className="btn btn-secondary" style={{ marginTop: '1rem', padding: '0.4rem 1.25rem', fontSize: '0.85rem' }} onClick={() => setViewingProject(null)}>Close Viewer</button>
           </div>
         </div>
       )}
