@@ -1,0 +1,14 @@
+{
+  "name": "justdial-dark-clone-root",
+  "version": "1.0.0",
+  "description": "Root configuration to manage client and server for JustDial dark clone",
+  "scripts": {
+    "install:all": "npm install --prefix client && npm install --prefix server && npm install",
+    "server": "npm --prefix server run dev",
+    "client": "npm --prefix client run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

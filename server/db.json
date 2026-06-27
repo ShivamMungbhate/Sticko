@@ -1,0 +1,257 @@
+{
+  "workers": [
+    {
+      "id": "w1",
+      "name": "Rohan Sharma",
+      "category": "Plumber",
+      "mobile": "9876543210",
+      "email": "rohan.sharma@gmail.com",
+      "address": "Apt 201, Sector 15, Delhi",
+      "govtId": "Aadhaar: 4567-8912-3456",
+      "isVerified": true,
+      "photo": "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=150&h=150&fit=crop&crop=face",
+      "rating": 4.8,
+      "experience": "8 years",
+      "hourlyRate": 250,
+      "reviews": [
+        {"user": "Amit Verma", "rating": 5, "comment": "Excellent service, fixed the leak immediately!", "date": "2026-06-25"},
+        {"user": "Priya Singh", "rating": 4, "comment": "Polite and professional.", "date": "2026-06-20"}
+      ]
+    },
+    {
+      "id": "w2",
+      "name": "Vikram Rathore",
+      "category": "Electrician",
+      "mobile": "8765432109",
+      "email": "vikram.rathore@yahoo.com",
+      "address": "Plot 42, Laxmi Nagar, Noida",
+      "govtId": "PAN: BCDPR8901Z",
+      "isVerified": true,
+      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      "rating": 4.7,
+      "experience": "5 years",
+      "hourlyRate": 300,
+      "reviews": [
+        {"user": "Sanjay Kapoor", "rating": 5, "comment": "Highly skilled, resolved short-circuit issue quickly.", "date": "2026-06-22"}
+      ]
+    },
+    {
+      "id": "w3",
+      "name": "Sunita Rao",
+      "category": "Tutor",
+      "mobile": "7654321098",
+      "email": "sunita.rao@outlook.com",
+      "address": "B-12, Malleswaram, Bangalore",
+      "govtId": "Aadhaar: 7890-1234-5678",
+      "isVerified": true,
+      "photo": "",
+      "rating": 4.9,
+      "experience": "6 years",
+      "hourlyRate": 400,
+      "reviews": [
+        {"user": "Meera Joshi", "rating": 5, "comment": "My son's math grades improved significantly!", "date": "2026-06-18"}
+      ],
+      "studentSection": true
+    },
+    {
+      "id": "w4",
+      "name": "Arjun Malhotra",
+      "category": "Gaming Partner",
+      "mobile": "9998887776",
+      "email": "arjun.gamer@gmail.com",
+      "address": "Apt 501, Bandra West, Mumbai",
+      "govtId": "Passport: Z1234567",
+      "isVerified": false,
+      "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+      "rating": 4.5,
+      "experience": "National Chess Competitor",
+      "hourlyRate": 150,
+      "games": ["Chess", "Table Tennis", "Valorant"],
+      "reviews": [
+        {"user": "Rohan Deshmukh", "rating": 4, "comment": "Great chess game, learned a lot of opening strategies.", "date": "2026-06-24"}
+      ],
+      "studentSection": true
+    },
+    {
+      "id": "w5",
+      "name": "Kabir Dev",
+      "category": "Gaming Partner",
+      "mobile": "9112223334",
+      "email": "kabir.dev@gmail.com",
+      "address": "Sector 44, Chandigarh",
+      "govtId": "Aadhaar: 3210-9876-5432",
+      "isVerified": true,
+      "photo": "",
+      "rating": 4.9,
+      "experience": "State Badminton Player",
+      "hourlyRate": 200,
+      "games": ["Badminton", "Football", "Cricket"],
+      "reviews": [],
+      "studentSection": true
+    },
+    {
+      "id": "w6",
+      "name": "Rajesh Kumar",
+      "category": "Labour",
+      "mobile": "9812345678",
+      "email": "rajesh.kumar@gmail.com",
+      "address": "Block C, T. Nagar, Chennai",
+      "govtId": "Voter ID: XYZ9876543",
+      "isVerified": true,
+      "photo": "",
+      "rating": 4.6,
+      "experience": "10 years",
+      "hourlyRate": 180,
+      "reviews": []
+    },
+    {
+      "id": "w7",
+      "name": "Manish Gupta",
+      "category": "Car Mechanic",
+      "mobile": "9898989898",
+      "email": "manish.gupta@gmail.com",
+      "address": "Teppakulam, Madurai",
+      "govtId": "Aadhaar: 1111-2222-3333",
+      "isVerified": true,
+      "photo": "https://images.unsplash.com/photo-1621574539437-4b7cb63120b8?w=150&h=150&fit=crop",
+      "rating": 4.7,
+      "experience": "12 years",
+      "hourlyRate": 350,
+      "reviews": [
+        {"user": "Gaurav Sen", "rating": 5, "comment": "Excellent engine diagnostic and tuning.", "date": "2026-06-15"}
+      ]
+    },
+    {
+      "id": "w8",
+      "name": "Sarah Khan",
+      "category": "Machine Mechanic",
+      "mobile": "9777666555",
+      "email": "sarah.khan@gmail.com",
+      "address": "Hampankatta, Mangalore",
+      "govtId": "Aadhaar: 5555-6666-7777",
+      "isVerified": true,
+      "photo": "",
+      "rating": 4.9,
+      "experience": "7 years",
+      "hourlyRate": 500,
+      "reviews": []
+    },
+    {
+      "id": "w9",
+      "name": "Deepak Yadav",
+      "category": "Delivery Boy",
+      "mobile": "9555444333",
+      "email": "deepak.yadav@gmail.com",
+      "address": "DLF Phase 3, Gurgaon",
+      "govtId": "Driving License: DL-123456789",
+      "isVerified": true,
+      "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
+      "rating": 4.6,
+      "experience": "3 years",
+      "hourlyRate": 120,
+      "reviews": []
+    },
+    {
+      "id": "w10",
+      "name": "Preeti Verma",
+      "category": "Booking Agent",
+      "mobile": "9444333222",
+      "email": "preeti.verma@gmail.com",
+      "address": "Begum Bridge Road, Meerut",
+      "govtId": "Aadhaar: 9999-8888-7777",
+      "isVerified": true,
+      "photo": "",
+      "rating": 4.8,
+      "experience": "4 years",
+      "hourlyRate": 150,
+      "reviews": []
+    },
+    {
+      "id": "w11",
+      "name": "Anjali Sen",
+      "category": "Tutor",
+      "mobile": "9830098300",
+      "email": "anjali.sen@gmail.com",
+      "address": "Salt Lake Sector 5, Kolkata",
+      "govtId": "Aadhaar: 8888-9999-1111",
+      "isVerified": true,
+      "photo": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
+      "rating": 4.9,
+      "experience": "8 years",
+      "hourlyRate": 450,
+      "reviews": [
+        {"user": "Riddhima Das", "rating": 5, "comment": "Excellent English classes.", "date": "2026-06-22"}
+      ],
+      "studentSection": true
+    },
+    {
+      "id": "w12",
+      "name": "Yash Vardhan",
+      "category": "Car Mechanic",
+      "mobile": "9766697666",
+      "email": "yash.vardhan@gmail.com",
+      "address": "Kothrud, Pune",
+      "govtId": "Aadhaar: 2222-3333-4444",
+      "isVerified": true,
+      "photo": "",
+      "rating": 4.7,
+      "experience": "9 years",
+      "hourlyRate": 300,
+      "reviews": []
+    }
+  ],
+  "users": [
+    {
+      "id": "u1",
+      "name": "Shiva Kumar",
+      "mobile": "9999999999",
+      "email": "shiva@gemini.com",
+      "address": "123 Workspace St, Delhi",
+      "govtId": "Aadhaar: 0000-0000-0000"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "b1",
+      "userId": "u1",
+      "userName": "Shiva Kumar",
+      "workerId": "w1",
+      "workerName": "Rohan Sharma",
+      "workerCategory": "Plumber",
+      "date": "2026-06-28",
+      "status": "approved",
+      "hours": 2,
+      "totalAmount": 500,
+      "notes": "Fix bathroom sink leak."
+    }
+  ],
+  "studentGigs": [
+    {
+      "id": "g1",
+      "title": "On-Campus Pizza Delivery Assistant",
+      "description": "Deliver fresh pizzas to student hostels. Bicycle or scooter required.",
+      "company": "Campus Pizza Hub",
+      "salary": "₹150 / hr + Tips",
+      "type": "Part-Time",
+      "location": "University Campus"
+    },
+    {
+      "id": "g2",
+      "title": "Mathematics Homework Grader",
+      "description": "Grading weekly algebra and calculus homework sheets for junior batches.",
+      "company": "Science Dept, State University",
+      "salary": "₹200 / hr",
+      "type": "Part-Time",
+      "location": "Remote / Campus"
+    },
+    {
+      "id": "g3",
+      "title": "Gaming Tournament Organizer Helper",
+      "description": "Set up LAN party gear, moderate brackets, and oversee Valorant friendly matches.",
+      "company": "Apex Esports Club",
+      "salary": "₹1200 for 1-day event",
+      "type": "One-Off",
+      "location": "Sector 62, Cyber Arena"
+    }
+  ]
+}
