@@ -29,7 +29,7 @@ export default function StudentCorner({ currentUser, onPromptLogin, onSelectCate
 
   useEffect(() => {
     // Fetch all workers and separate student services
-    fetch('http://127.0.0.1:5000/api/workers')
+    fetch('/api/workers')
       .then(res => res.json())
       .then(data => {
         // Gaming Partners
@@ -43,7 +43,7 @@ export default function StudentCorner({ currentUser, onPromptLogin, onSelectCate
       .catch(err => console.error('Error fetching workers for student section:', err));
 
     // Fetch gigs
-    fetch('http://127.0.0.1:5000/api/gigs')
+    fetch('/api/gigs')
       .then(res => res.json())
       .then(data => setGigs(data))
       .catch(err => console.error('Error fetching student gigs:', err));
@@ -60,7 +60,7 @@ export default function StudentCorner({ currentUser, onPromptLogin, onSelectCate
       type: newGigType
     };
 
-    fetch('http://127.0.0.1:5000/api/gigs', {
+    fetch('/api/gigs', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)

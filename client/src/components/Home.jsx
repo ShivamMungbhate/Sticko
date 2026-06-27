@@ -54,7 +54,7 @@ export default function Home({ onSelectCategory, onViewAllWorkers, onSearch }) {
 
   useEffect(() => {
     // Fetch featured (highly rated and verified) workers
-    fetch('http://127.0.0.1:5000/api/workers')
+    fetch('/api/workers')
       .then(res => res.json())
       .then(data => {
         const verified = data.filter(w => w.isVerified).slice(0, 3);

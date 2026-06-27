@@ -31,7 +31,7 @@ export default function CategoryList({ category, currentUser, onPromptLogin, sea
   // Fetch Workers
   useEffect(() => {
     setLoading(true);
-    let url = 'http://127.0.0.1:5000/api/workers';
+    let url = '/api/workers';
     if (category) {
       url += `?category=${encodeURIComponent(category)}`;
     } else if (searchParams && searchParams.query) {
@@ -90,7 +90,7 @@ export default function CategoryList({ category, currentUser, onPromptLogin, sea
       notes: bookingNotes
     };
 
-    fetch('http://127.0.0.1:5000/api/bookings', {
+    fetch('/api/bookings', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(bookingPayload)
@@ -118,7 +118,7 @@ export default function CategoryList({ category, currentUser, onPromptLogin, sea
       comment: reviewComment
     };
 
-    fetch(`http://127.0.0.1:5000/api/workers/${selectedWorkerForReview.id}/reviews`, {
+    fetch(`/api/workers/${selectedWorkerForReview.id}/reviews`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(reviewPayload)

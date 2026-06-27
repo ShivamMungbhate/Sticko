@@ -61,7 +61,7 @@ export default function WorkerRegister({ onRegistrationSuccess }) {
       studentSection: category === 'Tutor' || category === 'Gaming Partner'
     };
 
-    fetch('http://127.0.0.1:5000/api/workers', {
+    fetch('/api/workers', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)

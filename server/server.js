@@ -10,6 +10,9 @@ const DB_PATH = path.join(__dirname, 'db.json');
 app.use(cors());
 app.use(express.json());
 
+// Serve static frontend files from React build folder
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
 // Helper to read database
 async function readDB() {
   try {
@@ -348,6 +351,11 @@ app.post('/api/gigs', async (req, res) => {
   db.studentGigs.push(newGig);
   await writeDB(db);
   res.status(201).json(newGig);
+});
+
+// Anything that doesn't match an API route, send back React's index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 // Start server

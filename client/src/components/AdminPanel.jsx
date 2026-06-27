@@ -42,7 +42,7 @@ export default function AdminPanel() {
     e.preventDefault();
     setAuthError('');
 
-    fetch('http://127.0.0.1:5000/api/admin/login', {
+    fetch('/api/admin/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ password: adminPassword })
@@ -69,7 +69,7 @@ export default function AdminPanel() {
     const headers = { 'x-admin-password': password };
 
     // Fetch stats
-    fetch('http://127.0.0.1:5000/api/server-status', { headers })
+    fetch('/api/server-status', { headers })
       .then(res => res.json())
       .then(data => {
         setServerStats(data);
@@ -78,7 +78,7 @@ export default function AdminPanel() {
       .catch(err => console.error(err));
 
     // Fetch workers
-    fetch('http://127.0.0.1:5000/api/workers')
+    fetch('/api/workers')
       .then(res => res.json())
       .then(data => {
         setWorkers(data);
@@ -87,7 +87,7 @@ export default function AdminPanel() {
       .catch(err => console.error(err));
 
     // Fetch users
-    fetch('http://127.0.0.1:5000/api/users', { headers })
+    fetch('/api/users', { headers })
       .then(res => {
         if (!res.ok) throw new Error('Unauth');
         return res.json();
@@ -99,7 +99,7 @@ export default function AdminPanel() {
       .catch(err => console.error(err));
 
     // Fetch raw DB simulation
-    fetch('http://127.0.0.1:5000/api/workers')
+    fetch('/api/workers')
       .then(() => {
         // Just mock-display the data model since we don't expose whole DB file directly
         setRawDb({ info: "Admin Database View" });
@@ -108,7 +108,7 @@ export default function AdminPanel() {
 
   const pollServerStats = () => {
     const password = sessionStorage.getItem('adminPassword') || adminPassword;
-    fetch('http://127.0.0.1:5000/api/server-status', { 
+    fetch('/api/server-status', { 
       headers: { 'x-admin-password': password } 
     })
       .then(res => {
@@ -134,7 +134,7 @@ export default function AdminPanel() {
 
   const handleVerifyWorker = (workerId) => {
     const password = sessionStorage.getItem('adminPassword') || adminPassword;
-    fetch(`http://127.0.0.1:5000/api/workers/${workerId}/verify`, {
+    fetch(`/api/workers/${workerId}/verify`, {
       method: 'PUT',
       headers: { 
         'Content-Type': 'application/json',
@@ -155,7 +155,7 @@ export default function AdminPanel() {
     if (!window.confirm("Are you sure you want to remove this worker listing?")) return;
     
     const password = sessionStorage.getItem('adminPassword') || adminPassword;
-    fetch(`http://127.0.0.1:5000/api/workers/${workerId}`, {
+    fetch(`/api/workers/${workerId}`, {
       method: 'DELETE',
       headers: { 'x-admin-password': password }
     })
@@ -173,7 +173,7 @@ export default function AdminPanel() {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
 
     const password = sessionStorage.getItem('adminPassword') || adminPassword;
-    fetch(`http://127.0.0.1:5000/api/users/${userId}`, {
+    fetch(`/api/users/${userId}`, {
       method: 'DELETE',
       headers: { 'x-admin-password': password }
     })
@@ -275,7 +275,7 @@ export default function AdminPanel() {
               setActiveTab('database');
               // Update Raw DB view
               const password = sessionStorage.getItem('adminPassword');
-              fetch('http://127.0.0.1:5000/api/bookings', { headers: { 'x-admin-password': password } })
+              fetch('/api/bookings', { headers: { 'x-admin-password': password } })
                 .then(res => res.json())
                 .then(bk => {
                   setRawDb({ workers, users: usersList, bookings: bk });

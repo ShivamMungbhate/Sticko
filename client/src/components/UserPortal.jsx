@@ -29,7 +29,7 @@ export default function UserPortal({ currentUser, onLogin, onLogout }) {
   }, [currentUser]);
 
   const fetchBookings = () => {
-    fetch(`http://127.0.0.1:5000/api/bookings?userId=${currentUser.id}`)
+    fetch(`/api/bookings?userId=${currentUser.id}`)
       .then(res => res.json())
       .then(data => setBookings(data.reverse())) // Show newest bookings first
       .catch(err => console.error('Error fetching bookings:', err));
@@ -39,7 +39,7 @@ export default function UserPortal({ currentUser, onLogin, onLogout }) {
     e.preventDefault();
     setLoginError('');
 
-    fetch('http://127.0.0.1:5000/api/users/login', {
+    fetch('/api/users/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ govtId: loginGovtId })
@@ -71,7 +71,7 @@ export default function UserPortal({ currentUser, onLogin, onLogout }) {
       govtId: regGovtId
     };
 
-    fetch('http://127.0.0.1:5000/api/users/register', {
+    fetch('/api/users/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -101,7 +101,7 @@ export default function UserPortal({ currentUser, onLogin, onLogout }) {
   };
 
   const handleUpdateBookingStatus = (bookingId, newStatus) => {
-    fetch(`http://127.0.0.1:5000/api/bookings/${bookingId}`, {
+    fetch(`/api/bookings/${bookingId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ status: newStatus })
