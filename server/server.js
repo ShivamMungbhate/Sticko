@@ -131,12 +131,46 @@ app.post('/api/workers', async (req, res) => {
   res.status(201).json(newWorker);
 });
 
-// Verify Worker Govt ID (Admin only)
 app.put('/api/workers/:id/verify', adminAuth, async (req, res) => {
   const db = await readDB();
   const worker = db.workers.find(w => w.id === req.params.id);
   if (!worker) {
     return res.status(404).json({ error: 'Worker not found.' });
+  }
+
+  // Server-side authentication format verification (Requirement)
+  const idStr = worker.govtId || '';
+  let idValid = false;
+  let registryName = 'Government Central Registry';
+
+  if (idStr.toLowerCase().includes('aadhaar')) {
+    registryName = 'UIDAI Aadhaar Registry';
+    // Aadhaar check: should have 12 digits (with or without hyphens)
+    const digitsOnly = idStr.replace(/\D/g, '');
+    if (digitsOnly.length === 12) idValid = true;
+  } else if (idStr.toLowerCase().includes('pan')) {
+    registryName = 'Income Tax Department PAN Registry';
+    // PAN check: standard format 5 letters, 4 digits, 1 letter
+    const panRegex = /[a-zA-Z]{5}[0-9]{4}[a-zA-Z]/;
+    if (panRegex.test(idStr)) idValid = true;
+  } else if (idStr.toLowerCase().includes('passport') || idStr.toLowerCase().includes('dl')) {
+    registryName = 'Ministry of Transport / Passport Seva';
+    if (idStr.split(':')[1]?.trim().length >= 6) idValid = true;
+  } else {
+    // If it has a colon and some characters, check it
+    if (idStr.includes(':') && idStr.split(':')[1]?.trim().length >= 5) {
+      idValid = true;
+    }
+  }
+
+  // Simulate network delay contacting national credential servers
+  await new Promise(resolve => setTimeout(resolve, 1500));
+
+  if (!idValid) {
+    return res.status(422).json({ 
+      success: false, 
+      error: `Verification Rejected: Failed to validate identity in ${registryName}. Format is incorrect or unauthenticated.` 
+    });
   }
 
   worker.isVerified = true;

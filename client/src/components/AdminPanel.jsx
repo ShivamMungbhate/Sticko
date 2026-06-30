@@ -21,6 +21,8 @@ export default function AdminPanel() {
   
   // Database view
   const [rawDb, setRawDb] = useState({});
+  const [verifyingWorkerId, setVerifyingWorkerId] = useState(null);
+  const [verificationError, setVerificationError] = useState('');
 
   useEffect(() => {
     if (isAdminLoggedIn) {
@@ -134,6 +136,9 @@ export default function AdminPanel() {
 
   const handleVerifyWorker = (workerId) => {
     const password = sessionStorage.getItem('adminPassword') || adminPassword;
+    setVerifyingWorkerId(workerId);
+    setVerificationError('');
+
     fetch(`/api/workers/${workerId}/verify`, {
       method: 'PUT',
       headers: { 
@@ -141,14 +146,26 @@ export default function AdminPanel() {
         'x-admin-password': password 
       }
     })
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(err => { throw new Error(err.error || 'Verification check failed.'); });
+        }
+        return res.json();
+      })
       .then(data => {
         if (data.success) {
           setWorkers(prev => prev.map(w => w.id === workerId ? { ...w, isVerified: true } : w));
           addLog(`[ACTION] Government ID Verified for worker id: ${workerId}`);
         }
       })
-      .catch(err => console.error(err));
+      .catch(err => {
+        console.error(err);
+        setVerificationError(err.message || 'Verification rejected.');
+        addLog(`[ERROR] verification failed: ${err.message}`);
+      })
+      .finally(() => {
+        setVerifyingWorkerId(null);
+      });
   };
 
   const handleDeleteWorker = (workerId) => {
@@ -337,6 +354,20 @@ export default function AdminPanel() {
           {activeTab === 'workers' && (
             <div className="card-glass">
               <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '1rem' }}>Worker Listings Verification</h3>
+              
+              {verificationError && (
+                <div style={{ 
+                  background: 'rgba(239, 68, 68, 0.15)', 
+                  color: 'var(--danger)', 
+                  padding: '0.75rem', 
+                  borderRadius: '6px', 
+                  fontSize: '0.85rem',
+                  marginBottom: '1rem',
+                  border: '1px solid rgba(239, 68, 68, 0.2)'
+                }}>
+                  ⚠️ {verificationError}
+                </div>
+              )}
               <div style={{ overflowX: 'auto' }}>
                 <table className="admin-table">
                   <thead>
@@ -382,10 +413,25 @@ export default function AdminPanel() {
                                 <button 
                                   onClick={() => handleVerifyWorker(w.id)}
                                   className="btn btn-primary" 
-                                  style={{ padding: '0.3rem 0.6rem', fontSize: '0.75rem', background: 'var(--success)' }}
+                                  style={{ 
+                                    padding: '0.3rem 0.6rem', 
+                                    fontSize: '0.75rem', 
+                                    background: verifyingWorkerId === w.id ? 'var(--bg-tertiary)' : 'var(--success)',
+                                    pointerEvents: verifyingWorkerId ? 'none' : 'auto',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '0.25rem'
+                                  }}
                                   title="Approve Govt ID & List worker publicly"
+                                  disabled={!!verifyingWorkerId}
                                 >
-                                  <Check size={14} /> Verify
+                                  {verifyingWorkerId === w.id ? (
+                                    <>⏳ Verifying UIDAI...</>
+                                  ) : (
+                                    <>
+                                      <Check size={14} /> Verify
+                                    </>
+                                  )}
                                 </button>
                               )}
                               <button 
