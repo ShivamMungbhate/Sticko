@@ -3,10 +3,13 @@ import {
   User, MapPin, Phone, Mail, FileText, 
   Calendar, CheckCircle, Clock, XCircle, ShieldCheck
 } from 'lucide-react';
+import OtpModal from './OtpModal';
 
 export default function UserPortal({ currentUser, onLogin, onLogout }) {
   const [isRegistering, setIsRegistering] = useState(false);
   const [bookings, setBookings] = useState([]);
+  const [otpModalOpen, setOtpModalOpen] = useState(false);
+  const [otpModalData, setOtpModalData] = useState({ phone: '', aadhaar: '', onComplete: null });
   
   // Login input
   const [loginGovtId, setLoginGovtId] = useState('');
@@ -47,7 +50,13 @@ export default function UserPortal({ currentUser, onLogin, onLogout }) {
       .then(res => res.json())
       .then(data => {
         if (data.success) {
-          onLogin(data.user);
+          // Trigger OTP Verification Modal first!
+          setOtpModalData({
+            phone: data.user.mobile,
+            aadhaar: data.user.govtId.toLowerCase().includes('aadhaar') ? data.user.govtId : null,
+            onComplete: () => onLogin(data.user)
+          });
+          setOtpModalOpen(true);
         } else {
           setLoginError(data.error || 'Authentication failed.');
         }
@@ -58,8 +67,7 @@ export default function UserPortal({ currentUser, onLogin, onLogout }) {
       });
   };
 
-  const handleRegisterSubmit = (e) => {
-    e.preventDefault();
+  const executeRegisterSubmit = () => {
     setRegError('');
     setRegSuccess(false);
 
@@ -98,6 +106,18 @@ export default function UserPortal({ currentUser, onLogin, onLogout }) {
         console.error('Registration error:', err);
         setRegError('Error connecting to register server.');
       });
+  };
+
+  const handleRegisterSubmit = (e) => {
+    e.preventDefault();
+    
+    // Trigger OTP Verification Modal first!
+    setOtpModalData({
+      phone: regMobile,
+      aadhaar: regGovtId.toLowerCase().includes('aadhaar') ? regGovtId : null,
+      onComplete: executeRegisterSubmit
+    });
+    setOtpModalOpen(true);
   };
 
   const handleUpdateBookingStatus = (bookingId, newStatus) => {
@@ -364,6 +384,16 @@ export default function UserPortal({ currentUser, onLogin, onLogout }) {
           </div>
         </main>
       </div>
+      <OtpModal 
+        isOpen={otpModalOpen}
+        onClose={() => setOtpModalOpen(false)}
+        onSuccess={() => {
+          setOtpModalOpen(false);
+          if (otpModalData.onComplete) otpModalData.onComplete();
+        }}
+        targetPhone={otpModalData.phone}
+        targetAadhaar={otpModalData.aadhaar}
+      />
     </div>
   );
 }

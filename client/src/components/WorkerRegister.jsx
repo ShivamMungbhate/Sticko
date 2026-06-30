@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ShieldCheck, UserPlus, Info, CheckCircle } from 'lucide-react';
+import OtpModal from './OtpModal';
 
 const CATEGORIES = [
   'Plumber', 'Electrician', 'Labour', 'Tutor', 'Gaming Partner', 
@@ -27,6 +28,8 @@ export default function WorkerRegister({ onRegistrationSuccess }) {
   const [customPhotoUrl, setCustomPhotoUrl] = useState('');
   const [experience, setExperience] = useState('2 years');
   const [hourlyRate, setHourlyRate] = useState('200');
+  const [otpModalOpen, setOtpModalOpen] = useState(false);
+  const [otpModalData, setOtpModalData] = useState({ phone: '', aadhaar: '', onComplete: null });
   
   // Gaming fields
   const [gamesList, setGamesList] = useState('');
@@ -35,11 +38,7 @@ export default function WorkerRegister({ onRegistrationSuccess }) {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setError('');
-    setSuccess(false);
-
+  const executeSubmit = () => {
     // Format games list if gaming partner
     const games = category === 'Gaming Partner' 
       ? gamesList.split(',').map(g => g.trim()).filter(g => g !== '') 
@@ -78,6 +77,20 @@ export default function WorkerRegister({ onRegistrationSuccess }) {
         console.error('Worker registration error:', err);
         setError('Error submitting registration. Please check server connections.');
       });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setError('');
+    setSuccess(false);
+
+    // Trigger OTP Verification Modal first!
+    setOtpModalData({
+      phone: mobile,
+      aadhaar: govtId.toLowerCase().includes('aadhaar') ? govtId : null,
+      onComplete: executeSubmit
+    });
+    setOtpModalOpen(true);
   };
 
   return (
@@ -257,6 +270,16 @@ export default function WorkerRegister({ onRegistrationSuccess }) {
             Submit Registration
           </button>
         </form>
+        <OtpModal 
+          isOpen={otpModalOpen}
+          onClose={() => setOtpModalOpen(false)}
+          onSuccess={() => {
+            setOtpModalOpen(false);
+            if (otpModalData.onComplete) otpModalData.onComplete();
+          }}
+          targetPhone={otpModalData.phone}
+          targetAadhaar={otpModalData.aadhaar}
+        />
       </div>
     </div>
   );

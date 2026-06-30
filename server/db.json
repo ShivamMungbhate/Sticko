@@ -14,12 +14,28 @@
       "experience": "8 years",
       "hourlyRate": 250,
       "reviews": [
-        {"user": "Amit Verma", "rating": 5, "comment": "Excellent service, fixed the leak immediately!", "date": "2026-06-25"},
-        {"user": "Priya Singh", "rating": 4, "comment": "Polite and professional.", "date": "2026-06-20"}
+        {
+          "user": "Amit Verma",
+          "rating": 5,
+          "comment": "Excellent service, fixed the leak immediately!",
+          "date": "2026-06-25"
+        },
+        {
+          "user": "Priya Singh",
+          "rating": 4,
+          "comment": "Polite and professional.",
+          "date": "2026-06-20"
+        }
       ],
       "portfolio": [
-        { "title": "Under-Sink Piping Restoration", "image": "https://images.unsplash.com/photo-1581244904349-86426dea8d68?w=300&h=200&fit=crop" },
-        { "title": "Bathroom Clog Clearance & Fittings", "image": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=300&h=200&fit=crop" }
+        {
+          "title": "Under-Sink Piping Restoration",
+          "image": "https://images.unsplash.com/photo-1581244904349-86426dea8d68?w=300&h=200&fit=crop"
+        },
+        {
+          "title": "Bathroom Clog Clearance & Fittings",
+          "image": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=300&h=200&fit=crop"
+        }
       ]
     },
     {
@@ -36,11 +52,22 @@
       "experience": "5 years",
       "hourlyRate": 300,
       "reviews": [
-        {"user": "Sanjay Kapoor", "rating": 5, "comment": "Highly skilled, resolved short-circuit issue quickly.", "date": "2026-06-22"}
+        {
+          "user": "Sanjay Kapoor",
+          "rating": 5,
+          "comment": "Highly skilled, resolved short-circuit issue quickly.",
+          "date": "2026-06-22"
+        }
       ],
       "portfolio": [
-        { "title": "Modular DB Panel Installation", "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=300&h=200&fit=crop" },
-        { "title": "Chandelier Fitting & Smart Lighting", "image": "https://images.unsplash.com/photo-1565538810844-1e1194826cf0?w=300&h=200&fit=crop" }
+        {
+          "title": "Modular DB Panel Installation",
+          "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=300&h=200&fit=crop"
+        },
+        {
+          "title": "Chandelier Fitting & Smart Lighting",
+          "image": "https://images.unsplash.com/photo-1565538810844-1e1194826cf0?w=300&h=200&fit=crop"
+        }
       ]
     },
     {
@@ -57,11 +84,19 @@
       "experience": "6 years",
       "hourlyRate": 400,
       "reviews": [
-        {"user": "Meera Joshi", "rating": 5, "comment": "My son's math grades improved significantly!", "date": "2026-06-18"}
+        {
+          "user": "Meera Joshi",
+          "rating": 5,
+          "comment": "My son's math grades improved significantly!",
+          "date": "2026-06-18"
+        }
       ],
       "studentSection": true,
       "portfolio": [
-        { "title": "Online Algebra Batch", "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=300&h=200&fit=crop" }
+        {
+          "title": "Online Algebra Batch",
+          "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=300&h=200&fit=crop"
+        }
       ]
     },
     {
@@ -77,13 +112,25 @@
       "rating": 4.5,
       "experience": "National Chess Competitor",
       "hourlyRate": 150,
-      "games": ["Chess", "Table Tennis", "Valorant"],
+      "games": [
+        "Chess",
+        "Table Tennis",
+        "Valorant"
+      ],
       "reviews": [
-        {"user": "Rohan Deshmukh", "rating": 4, "comment": "Great chess game, learned a lot of opening strategies.", "date": "2026-06-24"}
+        {
+          "user": "Rohan Deshmukh",
+          "rating": 4,
+          "comment": "Great chess game, learned a lot of opening strategies.",
+          "date": "2026-06-24"
+        }
       ],
       "studentSection": true,
       "portfolio": [
-        { "title": "Tournament Coaching Session", "image": "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=300&h=200&fit=crop" }
+        {
+          "title": "Tournament Coaching Session",
+          "image": "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=300&h=200&fit=crop"
+        }
       ]
     },
     {
@@ -99,7 +146,11 @@
       "rating": 4.9,
       "experience": "State Badminton Player",
       "hourlyRate": 200,
-      "games": ["Badminton", "Football", "Cricket"],
+      "games": [
+        "Badminton",
+        "Football",
+        "Cricket"
+      ],
       "reviews": [],
       "studentSection": true,
       "portfolio": []
@@ -134,10 +185,18 @@
       "experience": "12 years",
       "hourlyRate": 350,
       "reviews": [
-        {"user": "Gaurav Sen", "rating": 5, "comment": "Excellent engine diagnostic and tuning.", "date": "2026-06-15"}
+        {
+          "user": "Gaurav Sen",
+          "rating": 5,
+          "comment": "Excellent engine diagnostic and tuning.",
+          "date": "2026-06-15"
+        }
       ],
       "portfolio": [
-        { "title": "Engine Valve Rebuild", "image": "https://images.unsplash.com/photo-1486006920555-c77dce18193b?w=300&h=200&fit=crop" }
+        {
+          "title": "Engine Valve Rebuild",
+          "image": "https://images.unsplash.com/photo-1486006920555-c77dce18193b?w=300&h=200&fit=crop"
+        }
       ]
     },
     {
@@ -202,11 +261,19 @@
       "experience": "8 years",
       "hourlyRate": 450,
       "reviews": [
-        {"user": "Riddhima Das", "rating": 5, "comment": "Excellent English classes.", "date": "2026-06-22"}
+        {
+          "user": "Riddhima Das",
+          "rating": 5,
+          "comment": "Excellent English classes.",
+          "date": "2026-06-22"
+        }
       ],
       "studentSection": true,
       "portfolio": [
-        { "title": "Science Olympiad Study Lab", "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300&h=200&fit=crop" }
+        {
+          "title": "Science Olympiad Study Lab",
+          "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300&h=200&fit=crop"
+        }
       ]
     },
     {
@@ -239,11 +306,22 @@
       "experience": "7 years",
       "hourlyRate": 600,
       "reviews": [
-        {"user": "Nitin Goel", "rating": 5, "comment": "Amazing wedding tent canopy and lighting setup. Highly recommend!", "date": "2026-06-12"}
+        {
+          "user": "Nitin Goel",
+          "rating": 5,
+          "comment": "Amazing wedding tent canopy and lighting setup. Highly recommend!",
+          "date": "2026-06-12"
+        }
       ],
       "portfolio": [
-        { "title": "Gala Wedding Canopy Setup", "image": "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=300&h=200&fit=crop" },
-        { "title": "Exotic Lights & Dome Tents", "image": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=300&h=200&fit=crop" }
+        {
+          "title": "Gala Wedding Canopy Setup",
+          "image": "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=300&h=200&fit=crop"
+        },
+        {
+          "title": "Exotic Lights & Dome Tents",
+          "image": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=300&h=200&fit=crop"
+        }
       ]
     },
     {
@@ -261,7 +339,10 @@
       "hourlyRate": 800,
       "reviews": [],
       "portfolio": [
-        { "title": "Outdoor Corporate Stage Setup", "image": "https://images.unsplash.com/photo-1511578314322-379afb476865?w=300&h=200&fit=crop" }
+        {
+          "title": "Outdoor Corporate Stage Setup",
+          "image": "https://images.unsplash.com/photo-1511578314322-379afb476865?w=300&h=200&fit=crop"
+        }
       ]
     },
     {
@@ -274,15 +355,26 @@
       "govtId": "Passport: V9988776",
       "isVerified": true,
       "photo": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=150&h=150&fit=crop&crop=face",
-      "rating": 5.0,
+      "rating": 5,
       "experience": "15 years",
       "hourlyRate": 1000,
       "reviews": [
-        {"user": "Akash Mehra", "rating": 5, "comment": "The gourmet multi-cuisine dinner was outstanding!", "date": "2026-06-23"}
+        {
+          "user": "Akash Mehra",
+          "rating": 5,
+          "comment": "The gourmet multi-cuisine dinner was outstanding!",
+          "date": "2026-06-23"
+        }
       ],
       "portfolio": [
-        { "title": "Royal Awadhi Biryani & Kebabs Platter", "image": "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?w=300&h=200&fit=crop" },
-        { "title": "Artisanal Dessert Buffet Display", "image": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=300&h=200&fit=crop" }
+        {
+          "title": "Royal Awadhi Biryani & Kebabs Platter",
+          "image": "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?w=300&h=200&fit=crop"
+        },
+        {
+          "title": "Artisanal Dessert Buffet Display",
+          "image": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=300&h=200&fit=crop"
+        }
       ]
     },
     {
@@ -300,7 +392,10 @@
       "hourlyRate": 700,
       "reviews": [],
       "portfolio": [
-        { "title": "Pure Veg Gujarati Deluxe Thali", "image": "https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?w=300&h=200&fit=crop" }
+        {
+          "title": "Pure Veg Gujarati Deluxe Thali",
+          "image": "https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?w=300&h=200&fit=crop"
+        }
       ]
     },
     {
@@ -318,8 +413,14 @@
       "hourlyRate": 300,
       "reviews": [],
       "portfolio": [
-        { "title": "Teakwood Dining Table Handcraft", "image": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=300&h=200&fit=crop" },
-        { "title": "Custom TV Cabinet & Modular Wardrobe", "image": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=300&h=200&fit=crop" }
+        {
+          "title": "Teakwood Dining Table Handcraft",
+          "image": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=300&h=200&fit=crop"
+        },
+        {
+          "title": "Custom TV Cabinet & Modular Wardrobe",
+          "image": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=300&h=200&fit=crop"
+        }
       ]
     },
     {
@@ -337,7 +438,10 @@
       "hourlyRate": 250,
       "reviews": [],
       "portfolio": [
-        { "title": "Solid Wooden Study Desk Setup", "image": "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=300&h=200&fit=crop" }
+        {
+          "title": "Solid Wooden Study Desk Setup",
+          "image": "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=300&h=200&fit=crop"
+        }
       ]
     }
   ],
@@ -349,6 +453,14 @@
       "email": "shiva@gemini.com",
       "address": "123 Workspace St, Delhi",
       "govtId": "Aadhaar: 0000-0000-0000"
+    },
+    {
+      "id": "u1782820887971",
+      "name": "Shivam Mungbhate",
+      "mobile": "08839890237",
+      "email": "shivammungbhate671@gmail.com",
+      "address": "Saket Nagar",
+      "govtId": "617891832300"
     }
   ],
   "bookings": [
@@ -364,6 +476,19 @@
       "hours": 2,
       "totalAmount": 500,
       "notes": "Fix bathroom sink leak."
+    },
+    {
+      "id": "b1782820916958",
+      "userId": "u1782820887971",
+      "userName": "Shivam Mungbhate",
+      "workerId": "w4",
+      "workerName": "Arjun Malhotra",
+      "workerCategory": "Gaming Partner",
+      "date": "2026-06-30",
+      "status": "pending",
+      "hours": 2,
+      "totalAmount": 300,
+      "notes": ""
     }
   ],
   "studentGigs": [

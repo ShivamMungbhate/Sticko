@@ -10,6 +10,7 @@ import WorkerRegister from './components/WorkerRegister';
 import UserPortal from './components/UserPortal';
 import AdminPanel from './components/AdminPanel';
 import './App.css';
+import OtpModal from './components/OtpModal';
 
 export default function App() {
   const [activePage, setActivePage] = useState('home');
@@ -26,6 +27,8 @@ export default function App() {
   const [fastLoginError, setFastLoginError] = useState('');
 
   const [theme, setTheme] = useState('default');
+  const [otpModalOpen, setOtpModalOpen] = useState(false);
+  const [otpModalData, setOtpModalData] = useState({ phone: '', aadhaar: '', onComplete: null });
 
   // Persist User Session & Theme (Requirement)
   useEffect(() => {
@@ -72,9 +75,17 @@ export default function App() {
       .then(res => res.json())
       .then(data => {
         if (data.success) {
-          handleLogin(data.user);
-          setPromptLoginOpen(false);
-          setFastGovtId('');
+          // Trigger OTP Verification Modal first!
+          setOtpModalData({
+            phone: data.user.mobile,
+            aadhaar: data.user.govtId.toLowerCase().includes('aadhaar') ? data.user.govtId : null,
+            onComplete: () => {
+              handleLogin(data.user);
+              setPromptLoginOpen(false);
+              setFastGovtId('');
+            }
+          });
+          setOtpModalOpen(true);
         } else {
           setFastLoginError('Govt ID not found. Go to "Hiring Portal" to register.');
         }
@@ -296,6 +307,16 @@ export default function App() {
           </div>
         </div>
       )}
+      <OtpModal 
+        isOpen={otpModalOpen}
+        onClose={() => setOtpModalOpen(false)}
+        onSuccess={() => {
+          setOtpModalOpen(false);
+          if (otpModalData.onComplete) otpModalData.onComplete();
+        }}
+        targetPhone={otpModalData.phone}
+        targetAadhaar={otpModalData.aadhaar}
+      />
     </div>
   );
 }
