@@ -1,6 +1,6 @@
-# Walkthrough: Sticko Theme Switcher, Portfolios & New Trades (Completed)
+# Walkthrough: Sticko Service Expansion, OTP Checks, and Server Verifications
 
-We have successfully updated the **Sticko** local services portal with dynamic theme switcher controls, added new worker categories (Tent Man, Chef, Furniture Man), integrated a Customer Care contact mail, and developed image project portfolios for workers.
+We have updated the **Sticko** local services portal with dynamic theme switcher controls, added new worker categories (Tent Man, Chef, Furniture Man), integrated a Customer Care contact mail, developed visual portfolios, added booking cancellations, integrated Mobile & Aadhaar OTP check flows, and enforced server-side ID authentication checks.
 
 ## 🚀 Live Services
 - **GitHub Repository**: [https://github.com/ShivamMungbhate/Sticko](https://github.com/ShivamMungbhate/Sticko)
@@ -11,37 +11,43 @@ We have successfully updated the **Sticko** local services portal with dynamic t
 
 ## 🔧 Features Added
 
-### 1. Dynamic Theme Toggler (Default, Dark, Light)
-- **Default (🎨)**: The original cyberpunk neon violet theme.
-- **Dark (🌙)**: A sleek absolute carbon black layout.
-- **Light (☀️)**: A clean light mode utilizing soft whites, elegant gray elements, high-contrast text, and refined box shadows.
-- Persists user selection automatically in the browser's local cache (`localStorage`).
+### 1. Booking Cancellations
+*   Users can cancel bookings with `pending` or `approved` status directly from the **Booking Log** on their dashboard.
+*   Clicking **Cancel** sends a request to the server updating the status to `cancelled`, which renders in red and frees up state.
 
-### 2. Branding & Customer Care
-- Rebranded all logo labels from "Sticko Dark" to simply **Sticko**.
-- Added Customer Care references to the footer and contact headers with support mail pointing directly to: **`shivamhuyrr@gmail.com`**.
+### 2. Dual OTP Verification (Mobile & Aadhaar)
+*   **Trigger Points**: Runs during user registration, user login, fast login, and worker registration.
+*   **Step 1: Mobile Verification**: Prompts for a 6-digit OTP code sent to the mobile number (Default code: `123456`).
+*   **Step 2: Aadhaar UIDAI Verification**: If the user/worker enters an Aadhaar government ID, a secondary verification modal pops up requesting the UIDAI verification code (Default code: `654321`).
 
-### 3. Expanded Services & Worker Categories
-- Added 3 new service categories:
-  - **Tent Man**: Event, wedding stages, and light dome tent installations.
-  - **Chef**: Multi-cuisine chefs, catering assistants, and event buffet specialists.
-  - **Furniture Man**: Teakwood, custom wardrobe installations, and carpentry repairs.
-- Seeded the database with 6 additional realistic worker profiles across multiple Indian cities.
+### 3. Server-side Government ID Verification
+*   **Simulated Contact Delay**: The backend Express server simulates contacting the central registries (like UIDAI Aadhaar registry or Income Tax department) with a `1500ms` delay before granting verification permissions.
+*   **Aadhaar Validator**: The server validates that the Aadhaar ID contains exactly 12 numeric digits.
+*   **PAN Card Validator**: Enforces standard format validations (5 letters, 4 digits, 1 letter) using regex on the backend.
+*   **Admin Feedback**: The admin panel renders a loader `⏳ Verifying UIDAI...` during this request. If the format check fails, the backend rejects it and renders a warning banner detailing why.
 
-### 4. Worker Project Portfolio Showcases
-- Created a `portfolio` array field in `db.json` storing past project descriptions and photo assets.
-- Implemented a **"Works & Projects Portfolio"** horizontal sliding deck on worker cards.
-- Clicking any project image triggers a beautiful **Lightbox Picture Viewer modal** to inspect their past results.
+### 4. Dynamic Theme Toggler (Default, Dark, Light)
+*   **Default**: Original cyberpunk neon violet dark theme.
+*   **Dark**: Sleek absolute midnight-black carbon layout.
+*   **Light**: A clean light layout using soft whites and elegant shadows.
+*   Persists user choice in browser's local cache (`localStorage`).
+
+### 5. Expanded Services & Worker Categories
+*   Added three new service categories: **Tent Man**, **Chef**, and **Furniture Man** (Carpenter).
+*   Seeded `db.json` with visual portfolio arrays (slideshow deck and lightbox viewer) for each worker.
 
 ---
 
 ## 🔍 How to Test the Updates
 
 1. Open the website: [http://localhost:5173/](http://localhost:5173/)
-2. **Rebranding & Customer Care**: Verify that the header reads **Sticko** and check the footer for the mail hyperlink `shivamhuyrr@gmail.com`.
-3. **Theme Selector**: Use the dropdown widget in the top right navbar header to toggle between **Default**, **Dark**, and **Light** themes. Verify that the color variables update dynamically.
-4. **Worker Categories & Portfolios**:
-   - Go to **Hire Workers** or click on a new category (e.g., **Furniture Man**).
-   - Find a worker (e.g., Madan Suthar) and check out their **Works & Projects Portfolio**.
-   - Click on any project slide (e.g., "Teakwood Dining Table Handcraft") to open the lightbox image viewer modal!
-5. **Git Sync**: Check [https://github.com/ShivamMungbhate/Sticko](https://github.com/ShivamMungbhate/Sticko) to see the committed files.
+2. **Hiring Portal Login / Registration**:
+   *   Log in with an existing Govt ID. Verify that the **OTP Verification Modal** triggers (Enter `123456` for mobile, and `654321` if it is an Aadhaar card).
+3. **Admin Verification Flow**:
+   *   Go to **Server Control** (password: `root`) -> **Verify Workers** tab.
+   *   Click **Verify** on a pending worker (e.g. Harish Rawat). 
+   *   Notice the `⏳ Verifying UIDAI...` loader. The server will validate the format.
+   *   To test a rejection, register a new worker with an invalid Aadhaar format (e.g., just 3 numbers). Try verifying them in the admin dashboard: you will see a red error banner showing the server-side rejection reason!
+4. **Booking Cancellations**:
+   *   Book a service, go to your **Dashboard**, and click **Cancel** on the booking item.
+5. **Git Sync**: View the updated files on GitHub at [https://github.com/ShivamMungbhate/Sticko](https://github.com/ShivamMungbhate/Sticko).
